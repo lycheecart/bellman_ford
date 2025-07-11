@@ -1,0 +1,20 @@
+Simple/textbook bellman-ford demonstration program. 
+
+Loads the digraph from the file "./dg.txt", which is a list of edges [point-a point-b weight].
+After loading, this script will run an infinite loop that will await an update to the graph, a single edge at a time, presuming this to come from an immediate neighbor.
+It will then recompute distances.
+
+Two 'extra' features:
+ The program will also remember the specific shortest paths from the "origin" node to all others.
+ There is also a negative-cycle detection step.
+
+Bellman-Ford is a "distance-vector" algorithm where nodes are given the information to reach distant nodes by their immediate neighbors.
+This keeps a dict of costs. Each cost is initialized to "infinity" (10**20).
+
+¤the basic idea¤
+for i = 0 to ((number of nodes in graph) - 1)
+ foreach edge
+  if the edge's point_a + weight < cost[point_b], 
+   then costs[point_b] = point_a+weight
+
+The sample graphs saved as graph_*.txt can each be copied into dg.txt. They come with handy illustrations.
